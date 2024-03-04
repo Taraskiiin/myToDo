@@ -1,13 +1,13 @@
 import { SHOW_MODAL, HIDE_MODAL } from "../actions/modal";
 
-const initialState = null;
+const initialState = false;
 
 const modalReducer = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_MODAL:
-      return action.payload;
+      return true;
     case HIDE_MODAL:
-      return null;
+      return false;
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import passwordHiddenIcon from "../../assets/password-hidden.svg";
-import passwordOpenedIcon from "../../assets/password-opened.svg";
+import passwordHiddenIcon from "../../../assets/password-hidden.svg";
+import passwordOpenedIcon from "../../../assets/password-opened.svg";
 
 export const TextField = ({
   type = "text",
@@ -12,7 +12,7 @@ export const TextField = ({
   onChange,
   isPasswordVisible = false,
 }) => {
-  const [inputType, setInputType] = useState();
+  const [inputType, setInputType] = useState(type);
 
   const toggleInputType = () => {
     setInputType((prevType) => (prevType === "text" ? "password" : "text"));
