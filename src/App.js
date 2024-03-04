@@ -7,13 +7,8 @@ import { Modal } from "./components/atoms/modal";
 import { NewTodoForm } from "./components/molecules/new-todo-form";
 
 const App = () => {
-  const tasks = [
-    { label: "Complete assignment", done: false },
-    { label: "Read a book", done: true },
-    { label: "Exercise", done: false },
-  ];
-
   const modal = useSelector((state) => state.modal);
+  const todo = useSelector((state) => state.todo);
 
   return (
     <main className="max-w-[1360px] p-5 xl:p-0 xl:pt-20 m-auto">
@@ -24,7 +19,7 @@ const App = () => {
       )}
       <Title />
       <div className="flex justify-center gap-20 mx-auto w-full">
-        <TodoList tasks={tasks} />
+        <TodoList tasks={todo} />
         <Filter />
       </div>
     </main>

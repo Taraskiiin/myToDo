@@ -6,8 +6,12 @@ import { useForm, FormProvider as Form } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { hideModal } from "../../../redux/actions/modal";
+import { addTodo } from "../../../redux/actions/todo";
+
 import { TextField } from "../../atoms/text-field";
 import { Button } from "../../atoms/button";
+import { CheckBox } from "../../atoms/check-box";
 
 export const NewTodoForm = () => {
   const [loading, setIsLoading] = useState(false);
@@ -43,11 +47,12 @@ export const NewTodoForm = () => {
     setIsLoading(true);
     const { label, done } = data;
     try {
-      console.log({ label, done });
+      dispatch(addTodo(label, done));
     } catch (error) {
       console.error(error);
     } finally {
       reset();
+      dispatch(hideModal());
       setIsLoading(false);
     }
   });
@@ -62,11 +67,19 @@ export const NewTodoForm = () => {
           onChange={(event) => setValue("label", event.target.value)}
           placeholder="Todo"
         />
-        <Button
-          type="submit"
-          label="ADD TODO"
-          loading={isSubmitting && loading}
+        <CheckBox
+          id="done"
+          done={values.done}
+          onClick={() => setValue("done", !values.done)}
+          label="Already done!"
         />
+        <div className="mt-10">
+          <Button
+            type="submit"
+            label="ADD TODO"
+            loading={isSubmitting && loading}
+          />
+        </div>
       </form>
     </Form>
   );

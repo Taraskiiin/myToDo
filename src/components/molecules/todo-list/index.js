@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { showModal } from "../../../redux/actions/modal";
+import { toggleDone, removeTodo } from "../../../redux/actions/todo";
 
 import { TodoListItem } from "../../atoms/todo-list-item";
 import { Button } from "../../atoms/button";
@@ -7,9 +8,11 @@ import { Button } from "../../atoms/button";
 export const TodoList = ({ tasks }) => {
   const dispatch = useDispatch();
   const handleShowModal = () => dispatch(showModal());
-  const onClick = () => console.log("1");
+  const handleToggleTodo = (index) => dispatch(toggleDone(index));
+  const handleRemoveTodo = (index) => dispatch(removeTodo(index));
+
   return (
-    <div className="flex flex-col gap-10 max-w-2/3 items-center justify-center p-10 rounded-md bg-white">
+    <div className="flex flex-col gap-10 min-w-[560px] items-center justify-center p-10 rounded-md bg-white">
       <ul className="w-fit">
         {tasks.length > 0 &&
           tasks.map(({ label, done }, index) => (
@@ -17,7 +20,8 @@ export const TodoList = ({ tasks }) => {
               key={index}
               label={label}
               done={done}
-              onClick={onClick}
+              onClick={() => handleToggleTodo(index)}
+              onRemove={() => handleRemoveTodo(index)}
             />
           ))}
       </ul>

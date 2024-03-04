@@ -1,26 +1,16 @@
 import React from "react";
-import { PulseLoader } from "react-spinners";
-import cn from "classnames";
+import checkboxCheckedIcon from "../../../assets/checkbox-checked.svg";
+import checkboxUncheckedIcon from "../../../assets/checkbox-unchecked.svg";
 
-export const CheckBox = ({
-  type = "button",
-  label,
-  onClick,
-  loading = false,
-  disabled = false,
-}) => {
+export const CheckBox = ({ label, done, onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      type={type}
-      className={cn(
-        disabled
-          ? "cursor-not-allowed opacity-50"
-          : "hover:bg-secondary-color-dark",
-        "flex w-full p-[10px] justify-center items-center bg-primary border-primary cursor-pointer text-white text-xl font-[400] rounded-[16px] transition-all duration-300 ease-in border border-transparent shadow-md h-[56px] active:border-[3px] active:border-[#fff]"
-      )}
-    >
-      {loading ? <PulseLoader color="#fff" /> : label}
-    </button>
+    <div onClick={onClick} className="flex gap-3 cursor-pointer">
+      <img
+        src={done ? checkboxCheckedIcon : checkboxUncheckedIcon}
+        alt={done ? `checked done box` : `unchecked done box`}
+        className="w-5"
+      />
+      <p className="capitalize">{label}</p>
+    </div>
   );
 };
