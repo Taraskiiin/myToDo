@@ -1,6 +1,6 @@
-import checkboxCheckedIcon from "../../../assets/checkbox-checked.svg";
-import checkboxUncheckedIcon from "../../../assets/checkbox-unchecked.svg";
-import removeIcon from "../../../assets/remove-icon.svg";
+import checkboxCheckedIcon from '../../../assets/checkbox-checked.svg'
+import checkboxUncheckedIcon from '../../../assets/checkbox-unchecked.svg'
+import removeIcon from '../../../assets/remove-icon.svg'
 
 export const TodoListItem = ({ label, done, onClick, onRemove }) => {
   return (
@@ -24,5 +24,5 @@ export const TodoListItem = ({ label, done, onClick, onRemove }) => {
         <img src={removeIcon} alt="delete button" className="w-4" />
       </span>
     </li>
-  );
-};
+  )
+}

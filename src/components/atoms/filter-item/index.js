@@ -1,5 +1,5 @@
-import checkboxCheckedIcon from "../../../assets/checkbox-checked.svg";
-import checkboxUncheckedIcon from "../../../assets/checkbox-unchecked.svg";
+import checkboxCheckedIcon from '../../../assets/checkbox-checked.svg'
+import checkboxUncheckedIcon from '../../../assets/checkbox-unchecked.svg'
 
 export const FilterItem = ({ label, active, onClick }) => {
   return (
@@ -11,5 +11,5 @@ export const FilterItem = ({ label, active, onClick }) => {
       />
       <p className="text-gray-600 capitalize">{label}</p>
     </li>
-  );
-};
+  )
+}

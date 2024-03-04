@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["@wemake-services/javascript"],
-};
+  // extends: ['@wemake-services/javascript'],
+}

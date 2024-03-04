@@ -1,40 +1,40 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useForm, FormProvider as Form } from "react-hook-form";
-import * as Yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useForm, FormProvider as Form } from 'react-hook-form'
+import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import { maxLength } from "../../../contacts";
-import { hideModal } from "../../../redux/actions/modal";
-import { addTodo } from "../../../redux/actions/todo";
+import { maxLength } from '../../../contacts'
+import { hideModal } from '../../../redux/actions/modal'
+import { addTodo } from '../../../redux/actions/todo'
 
-import { TextField } from "../../atoms/text-field";
-import { Button } from "../../atoms/button";
-import { CheckBox } from "../../atoms/check-box";
+import { TextField } from '../../atoms/text-field'
+import { Button } from '../../atoms/button'
+import { CheckBox } from '../../atoms/check-box'
 
 export const NewTodoForm = () => {
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setIsLoading] = useState(false)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const validationSchema = Yup.object({
     label: Yup.string()
-      .required("Todo is required")
+      .required('Todo is required')
       .max(maxLength, `Label must be at most ${maxLength} characters`),
     done: Yup.boolean(),
-  });
+  })
 
   const initialValues = {
-    label: "",
+    label: '',
     done: false,
-  };
+  }
 
   const methods = useForm({
     resolver: yupResolver(validationSchema),
     defaultValues: initialValues,
-  });
+  })
 
   const {
     reset,
@@ -42,23 +42,23 @@ export const NewTodoForm = () => {
     watch,
     setValue,
     formState: { isSubmitting },
-  } = methods;
+  } = methods
 
-  const values = watch();
+  const values = watch()
 
   const onSubmit = handleSubmit(async (data) => {
-    setIsLoading(true);
-    const { label, done } = data;
+    setIsLoading(true)
+    const { label, done } = data
     try {
-      dispatch(addTodo(label, done));
+      dispatch(addTodo(label, done))
     } catch (error) {
-      console.error(error);
+      console.error(error)
     } finally {
-      reset();
-      dispatch(hideModal());
-      setIsLoading(false);
+      reset()
+      dispatch(hideModal())
+      setIsLoading(false)
     }
-  });
+  })
 
   return (
     <Form {...methods}>
@@ -67,13 +67,13 @@ export const NewTodoForm = () => {
           id="label"
           type="text"
           value={values.label}
-          onChange={(event) => setValue("label", event.target.value)}
+          onChange={(event) => setValue('label', event.target.value)}
           placeholder="Todo"
         />
         <CheckBox
           id="done"
           done={values.done}
-          onClick={() => setValue("done", !values.done)}
+          onClick={() => setValue('done', !values.done)}
           label="Already done!"
         />
         <div className="mt-10">
@@ -85,5 +85,5 @@ export const NewTodoForm = () => {
         </div>
       </form>
     </Form>
-  );
-};
+  )
+}

@@ -1,17 +1,17 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
-import { useDispatch } from "react-redux";
-import { FilterItem } from "../../atoms/filter-item";
-import { setFilter } from "../../../redux/actions/filter";
+import { useDispatch } from 'react-redux'
+import { FilterItem } from '../../atoms/filter-item'
+import { setFilter } from '../../../redux/actions/filter'
 
-const filter = ["all", "done", "unfinished"];
+const filter = ['all', 'done', 'unfinished']
 
 export const Filter = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const activeFilter = useSelector((state) => state.filter);
+  const activeFilter = useSelector((state) => state.filter)
 
-  const handleSetFilter = (filter) => dispatch(setFilter(filter));
+  const handleSetFilter = (filter) => dispatch(setFilter(filter))
   return (
     <ul className="w-fit p-10 rounded-md bg-white h-fit">
       {filter.map((label, index) => (
@@ -23,5 +23,5 @@ export const Filter = () => {
         />
       ))}
     </ul>
-  );
-};
+  )
+}

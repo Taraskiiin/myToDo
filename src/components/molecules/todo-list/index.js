@@ -1,15 +1,15 @@
-import { useDispatch } from "react-redux";
-import { showModal } from "../../../redux/actions/modal";
-import { toggleDone, removeTodo } from "../../../redux/actions/todo";
+import { useDispatch } from 'react-redux'
+import { showModal } from '../../../redux/actions/modal'
+import { toggleDone, removeTodo } from '../../../redux/actions/todo'
 
-import { TodoListItem } from "../../atoms/todo-list-item";
-import { Button } from "../../atoms/button";
+import { TodoListItem } from '../../atoms/todo-list-item'
+import { Button } from '../../atoms/button'
 
 export const TodoList = ({ tasks }) => {
-  const dispatch = useDispatch();
-  const handleShowModal = () => dispatch(showModal());
-  const handleToggleTodo = (index) => dispatch(toggleDone(index));
-  const handleRemoveTodo = (index) => dispatch(removeTodo(index));
+  const dispatch = useDispatch()
+  const handleShowModal = () => dispatch(showModal())
+  const handleToggleTodo = (index) => dispatch(toggleDone(index))
+  const handleRemoveTodo = (index) => dispatch(removeTodo(index))
 
   return (
     <div className="flex flex-col gap-10 min-w-[560px] items-center justify-center p-10 rounded-md bg-white">
@@ -29,5 +29,5 @@ export const TodoList = ({ tasks }) => {
         <Button label="+ ADD" onClick={handleShowModal} />
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import passwordHiddenIcon from "../../../assets/password-hidden.svg";
-import passwordOpenedIcon from "../../../assets/password-opened.svg";
+import passwordHiddenIcon from '../../../assets/password-hidden.svg'
+import passwordOpenedIcon from '../../../assets/password-opened.svg'
 
 export const TextField = ({
-  type = "text",
+  type = 'text',
   label,
   placeholder,
   id,
@@ -12,11 +12,11 @@ export const TextField = ({
   onChange,
   isPasswordVisible = false,
 }) => {
-  const [inputType, setInputType] = useState(type);
+  const [inputType, setInputType] = useState(type)
 
   const toggleInputType = () => {
-    setInputType((prevType) => (prevType === "text" ? "password" : "text"));
-  };
+    setInputType((prevType) => (prevType === 'text' ? 'password' : 'text'))
+  }
 
   return (
     <div className="relative max-w-full flex flex-col gap-[8px]">
@@ -29,7 +29,7 @@ export const TextField = ({
         <input
           type={inputType}
           id={id}
-          placeholder={placeholder ? placeholder : ""}
+          placeholder={placeholder ? placeholder : ''}
           value={value}
           onChange={onChange}
           className="py-[13px] pr-[70px] pl-[16px] text-primary text-md font-[400] w-full rounded-[8px] border border-primary"
@@ -42,9 +42,9 @@ export const TextField = ({
           >
             <img
               src={
-                inputType === "text" ? passwordOpenedIcon : passwordHiddenIcon
+                inputType === 'text' ? passwordOpenedIcon : passwordHiddenIcon
               }
-              alt={inputType === "text" ? "Hide Password" : "Show Password"}
+              alt={inputType === 'text' ? 'Hide Password' : 'Show Password'}
               width={30}
               height={30}
             />
@@ -52,5 +52,5 @@ export const TextField = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}

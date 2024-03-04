@@ -1,16 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-import rootReducer from "./reducer";
+import rootReducer from './reducer'
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  blacklist: ["storage"],
-};
+  blacklist: ['storage'],
+}
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -18,8 +18,8 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
     }),
-});
+})
 
-const persistor = persistStore(store);
+const persistor = persistStore(store)
 
-export { store, persistor };
+export { store, persistor }

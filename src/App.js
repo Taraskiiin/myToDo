@@ -1,34 +1,37 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
-import { doneTodosCount } from "./utils/doneTodosCount";
+import { doneTodosCount } from './utils/done-todos-count.js'
 
-import { TodoList } from "./components/molecules/todo-list";
-import { Filter } from "./components/molecules/filter";
-import { Title } from "./components/atoms/title";
-import { Modal } from "./components/atoms/modal";
-import { NewTodoForm } from "./components/molecules/new-todo-form";
-import { DoneCounter } from "./components/atoms/done-counter";
+import { TodoList } from './components/molecules/todo-list/index.js'
+import { Filter } from './components/molecules/filter/index.js'
+import { Title } from './components/atoms/title/index.js'
+import { Modal } from './components/atoms/modal/index.js'
+import { NewTodoForm } from './components/molecules/new-todo-form/index.js'
+import { DoneCounter } from './components/atoms/done-counter/index.js'
 
 const App = () => {
-  const modal = useSelector((state) => state.modal);
-  const todo = useSelector((state) => state.todo);
-  const filter = useSelector((state) => state.filter);
+  const modal = useSelector((state) => state.modal)
+  const todo = useSelector((state) => state.todo)
+  const filter = useSelector((state) => state.filter)
 
-  let filteredTodos;
+  let filteredTodos
 
   switch (filter) {
-    case "done":
-      filteredTodos = todo.filter((task) => task.done);
-      break;
-    case "unfinished":
-      filteredTodos = todo.filter((task) => !task.done);
-      break;
-    default:
-      filteredTodos = todo;
-      break;
+    case 'done': {
+      filteredTodos = todo.filter((task) => task.done)
+      break
+    }
+    case 'unfinished': {
+      filteredTodos = todo.filter((task) => !task.done)
+      break
+    }
+    default: {
+      filteredTodos = todo
+      break
+    }
   }
 
-  const doneCount = doneTodosCount(todo);
+  const doneCount = doneTodosCount(todo)
 
   return (
     <main className="max-w-[1360px] p-5 xl:p-0 xl:pt-20 m-auto">
@@ -44,7 +47,7 @@ const App = () => {
         <Filter />
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default App;
+export default App
