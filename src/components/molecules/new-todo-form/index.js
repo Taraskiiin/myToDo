@@ -6,6 +6,7 @@ import { useForm, FormProvider as Form } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { maxLength } from "../../../contacts";
 import { hideModal } from "../../../redux/actions/modal";
 import { addTodo } from "../../../redux/actions/todo";
 
@@ -19,7 +20,9 @@ export const NewTodoForm = () => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
-    label: Yup.string().required("Todo is required"),
+    label: Yup.string()
+      .required("Todo is required")
+      .max(maxLength, `Label must be at most ${maxLength} characters`),
     done: Yup.boolean(),
   });
 
