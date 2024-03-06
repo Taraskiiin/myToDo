@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 
 import passwordHiddenIcon from '../../../assets/password-hidden.svg'
@@ -29,7 +30,7 @@ export const TextField = ({
         <input
           type={inputType}
           id={id}
-          placeholder={placeholder ? placeholder : ''}
+          placeholder={placeholder ?? ''}
           value={value}
           onChange={onChange}
           className="py-[13px] pr-[70px] pl-[16px] text-primary text-md font-[400] w-full rounded-[8px] border border-primary"
@@ -42,9 +43,13 @@ export const TextField = ({
           >
             <img
               src={
-                inputType === 'text' ? passwordOpenedIcon : passwordHiddenIcon
+                inputType === 'text'
+                  ? passwordOpenedIcon
+                  : passwordHiddenIcon
               }
-              alt={inputType === 'text' ? 'Hide Password' : 'Show Password'}
+              alt={
+                inputType === 'text' ? 'Hide Password' : 'Show Password'
+              }
               width={30}
               height={30}
             />

@@ -4,7 +4,7 @@ const initialState = []
 
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TODO:
+    case ADD_TODO: {
       return [
         ...state,
         {
@@ -12,17 +12,23 @@ const todoReducer = (state = initialState, action) => {
           done: action.payload.done,
         },
       ]
+    }
 
-    case REMOVE_TODO:
-      return state.filter((_, index) => index !== action.payload.index)
+    case REMOVE_TODO: {
+      return state.filter((__, index) => index !== action.payload.index)
+    }
 
-    case TOGGLE_DONE:
+    case TOGGLE_DONE: {
       return state.map((todo, index) =>
-        index === action.payload.index ? { ...todo, done: !todo.done } : todo,
+        index === action.payload.index
+          ? { ...todo, done: !todo.done }
+          : todo,
       )
+    }
 
-    default:
+    default: {
       return state
+    }
   }
 }
 

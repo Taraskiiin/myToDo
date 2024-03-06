@@ -1,7 +1,10 @@
+import React from 'react'
+
 import checkboxCheckedIcon from '../../../assets/checkbox-checked.svg'
 import checkboxUncheckedIcon from '../../../assets/checkbox-unchecked.svg'
 import removeIcon from '../../../assets/remove-icon.svg'
 
+// eslint-disable-next-line react/prop-types
 export const TodoListItem = ({ label, done, onClick, onRemove }) => {
   return (
     <li

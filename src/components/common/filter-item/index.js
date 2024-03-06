@@ -1,6 +1,9 @@
+import React from 'react'
+
 import checkboxCheckedIcon from '../../../assets/checkbox-checked.svg'
 import checkboxUncheckedIcon from '../../../assets/checkbox-unchecked.svg'
 
+// eslint-disable-next-line react/prop-types
 export const FilterItem = ({ label, active, onClick }) => {
   return (
     <li className="cursor-pointer flex gap-3 w-fit" onClick={onClick}>

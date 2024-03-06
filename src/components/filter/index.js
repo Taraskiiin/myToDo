@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux'
+import React from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FilterItem } from '../common/filter-item'
 import { setFilter } from '../../redux/actions/filter'
 
@@ -11,6 +11,7 @@ export const Filter = () => {
 
   const activeFilter = useSelector((state) => state.filter)
 
+  // eslint-disable-next-line no-shadow
   const handleSetFilter = (filter) => dispatch(setFilter(filter))
   return (
     <ul className="w-fit p-10 rounded-md bg-white h-fit">

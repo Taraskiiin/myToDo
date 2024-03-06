@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import checkboxCheckedIcon from '../../../assets/checkbox-checked.svg'
 import checkboxUncheckedIcon from '../../../assets/checkbox-unchecked.svg'

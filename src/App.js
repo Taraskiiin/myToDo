@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/filename-case */
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { doneTodosCount } from './utils/done-todos-count.js'
@@ -14,7 +16,7 @@ const App = () => {
   const todo = useSelector((state) => state.todo)
   const filter = useSelector((state) => state.filter)
 
-  let filteredTodos;
+  let filteredTodos
 
   switch (filter) {
     case 'done': {

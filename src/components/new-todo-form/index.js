@@ -1,6 +1,4 @@
-'use client'
-
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useForm, FormProvider as Form } from 'react-hook-form'
 import * as Yup from 'yup'
@@ -44,6 +42,7 @@ export const NewTodoForm = () => {
     formState: { isSubmitting },
   } = methods
 
+  // eslint-disable-next-line id-blacklist
   const values = watch()
 
   const onSubmit = handleSubmit(async (data) => {
@@ -52,6 +51,7 @@ export const NewTodoForm = () => {
     try {
       dispatch(addTodo(label, done))
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error)
     } finally {
       reset()
@@ -66,13 +66,16 @@ export const NewTodoForm = () => {
         <TextField
           id="label"
           type="text"
+          // eslint-disable-next-line id-blacklist
           value={values.label}
           onChange={(event) => setValue('label', event.target.value)}
           placeholder="Todo"
         />
         <CheckBox
           id="done"
+          // eslint-disable-next-line id-blacklist
           done={values.done}
+          // eslint-disable-next-line id-blacklist
           onClick={() => setValue('done', !values.done)}
           label="Already done!"
         />

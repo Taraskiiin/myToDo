@@ -7,11 +7,11 @@ import { store, persistor } from './redux/store'
 import './index.css'
 import App from './App'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={undefined} persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>
