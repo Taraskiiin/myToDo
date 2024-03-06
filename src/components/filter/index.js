@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 
 import { useDispatch } from 'react-redux'
-import { FilterItem } from '../../atoms/filter-item'
-import { setFilter } from '../../../redux/actions/filter'
+import { FilterItem } from '../common/filter-item'
+import { setFilter } from '../../redux/actions/filter'
 
 const filter = ['all', 'done', 'unfinished']
 

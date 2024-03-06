@@ -2,19 +2,19 @@ import { useSelector } from 'react-redux'
 
 import { doneTodosCount } from './utils/done-todos-count.js'
 
-import { TodoList } from './components/molecules/todo-list/index.js'
-import { Filter } from './components/molecules/filter/index.js'
-import { Title } from './components/atoms/title/index.js'
-import { Modal } from './components/atoms/modal/index.js'
-import { NewTodoForm } from './components/molecules/new-todo-form/index.js'
-import { DoneCounter } from './components/atoms/done-counter/index.js'
+import { TodoList } from './components/todo-list'
+import { NewTodoForm } from './components/new-todo-form'
+import { DoneCounter } from './components/common/done-counter'
+import { Filter } from './components/filter'
+import { Title } from './components/common/title'
+import { Modal } from './components/common/modal'
 
 const App = () => {
   const modal = useSelector((state) => state.modal)
   const todo = useSelector((state) => state.todo)
   const filter = useSelector((state) => state.filter)
 
-  let filteredTodos
+  let filteredTodos;
 
   switch (filter) {
     case 'done': {

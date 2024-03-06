@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux'
-import { showModal } from '../../../redux/actions/modal'
-import { toggleDone, removeTodo } from '../../../redux/actions/todo'
+import { showModal } from '../../redux/actions/modal'
+import { toggleDone, removeTodo } from '../../redux/actions/todo'
 
-import { TodoListItem } from '../../atoms/todo-list-item'
-import { Button } from '../../atoms/button'
+import { TodoListItem } from '../common/todo-list-item'
+import { Button } from '../common/button'
 
 export const TodoList = ({ tasks }) => {
   const dispatch = useDispatch()

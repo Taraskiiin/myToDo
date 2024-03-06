@@ -6,13 +6,13 @@ import { useForm, FormProvider as Form } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { maxLength } from '../../../contacts'
-import { hideModal } from '../../../redux/actions/modal'
-import { addTodo } from '../../../redux/actions/todo'
+import { maxLength } from '../../contacts'
+import { hideModal } from '../../redux/actions/modal'
+import { addTodo } from '../../redux/actions/todo'
 
-import { TextField } from '../../atoms/text-field'
-import { Button } from '../../atoms/button'
-import { CheckBox } from '../../atoms/check-box'
+import { TextField } from '../common/text-field'
+import { Button } from '../common/button'
+import { CheckBox } from '../common/check-box'
 
 export const NewTodoForm = () => {
   const [loading, setIsLoading] = useState(false)
